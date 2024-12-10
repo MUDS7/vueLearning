@@ -3,14 +3,16 @@
     <div class="app">
       <h1>你好啊</h1>
       <Person/>
+      <person_setup/>
     </div>
 </template>
 
 <script lang="ts">
   import Person from './components/person.vue';
+  import person_setup from './components/person_setup.vue';
   export default {
     name:'App',
-    components: { Person },
+    components: { Person,person_setup },
   }
 </script>
 
