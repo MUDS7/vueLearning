@@ -9,6 +9,8 @@
     </div>
 </template>
 
+<!--标准setup方法写法-->
+<!--
 <script lang="ts">
     export default {
         name:"person_setup",
@@ -27,6 +29,22 @@
 
             return { name , age , showTel,addAge }
         } 
+    }
+</script>
+-->
+
+<!--setup 语法糖写法-->
+<script lang="ts" setup>
+    let name = '张三'
+    let age = 18
+    let tel = '123456789'
+
+    function showTel() {
+        alert(tel)
+    }
+
+    function addAge() {
+        age +=1
     }
 </script>
 
