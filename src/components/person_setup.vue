@@ -35,8 +35,9 @@
 
 <!--setup 语法糖写法-->
 <script lang="ts" setup>
+    import { ref } from 'vue';
     let name = '张三'
-    let age = 18
+    let age = ref(18)
     let tel = '123456789'
 
     function showTel() {
@@ -44,7 +45,7 @@
     }
 
     function addAge() {
-        age +=1
+        age.value +=1
     }
 </script>
 
