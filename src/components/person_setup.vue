@@ -2,10 +2,13 @@
     <div class="person">
         <h2>姓名:{{ name }}</h2>
         <h2>年龄:{{ age }}</h2>
+        <h2>语文成绩:{{ score.chinese }}</h2>
+        <h2>数学成绩:{{ score.match }}</h2>
         <button @click="showTel">点击显示电话号</button>
         <input v-model="name">
         <!--<button @click="changeName">修改名字</button> -->
         <button @click="addAge">增加年龄</button>
+        <button @click="addScore">修改成绩</button>
     </div>
 </template>
 
@@ -36,9 +39,13 @@
 <!--setup 语法糖写法-->
 <script lang="ts" setup>
     import { ref } from 'vue';
+    import { reactive } from 'vue';
+
     let name = '张三'
     let age = ref(18)
     let tel = '123456789'
+
+    let score = reactive({chinese: 98 , match: 100 })
 
     function showTel() {
         alert(tel)
@@ -46,6 +53,11 @@
 
     function addAge() {
         age.value +=1
+    }
+
+    function addScore() {
+        score.chinese += 10
+        score.match +=10
     }
 </script>
 
