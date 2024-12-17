@@ -9,6 +9,12 @@
         <!--<button @click="changeName">修改名字</button> -->
         <button @click="addAge">增加年龄</button>
         <button @click="addScore">修改成绩</button>
+        <h2>游戏列表</h2>
+        <ul>
+            <li v-for="g in games" :key="g.id">
+                {{  g.name }}
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -46,6 +52,11 @@
     let tel = '123456789'
 
     let score = reactive({chinese: 98 , match: 100 })
+    let games = reactive([
+        { id:'1', name: '123' },
+        { id:'2', name: '456' },
+        { id:'3', name: '789' }      
+    ])
 
     function showTel() {
         alert(tel)
