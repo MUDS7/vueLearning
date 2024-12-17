@@ -2,8 +2,8 @@
     <div class="person">
         <h2>姓名:{{ name }}</h2>
         <h2>年龄:{{ age }}</h2>
-        <h2>语文成绩:{{ score.chinese }}</h2>
-        <h2>数学成绩:{{ score.match }}</h2>
+        <h2>语文成绩:{{ chinese }}</h2>
+        <h2>数学成绩:{{ match }}</h2>
         <button @click="showTel">点击显示电话号</button>
         <input v-model="name">
         <!--<button @click="changeName">修改名字</button> -->
@@ -44,7 +44,7 @@
 
 <!--setup 语法糖写法-->
 <script lang="ts" setup>
-    import { ref } from 'vue';
+    import { ref, toRef, toRefs } from 'vue';
     import { reactive } from 'vue';
 
     let name = '张三'
@@ -58,6 +58,12 @@
         { id:'3', name: '789' }      
     ])
 
+    // 如果直接使用 let { chinese , match } = score ， chinese 和 match 就不是响应式对象 就不能修改值
+    // toRefs是将score中的每一个字段都加上ref()，所以需要使用.value才能修改值
+    let {chinese,match} = toRefs(score)
+    // toRef 就是将score中某个字段加上 ref()
+    //let chinese = toRef(score,'chinese')
+
     function showTel() {
         alert(tel)
     }
@@ -67,8 +73,8 @@
     }
 
     function addScore() {
-        score.chinese += 10
-        score.match +=10
+        chinese.value += 10
+        match.value +=10
     }
 </script>
 
