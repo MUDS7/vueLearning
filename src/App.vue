@@ -4,16 +4,19 @@
       <h1>你好啊</h1>
       <Person/>
       <person_setup/>
+      <person_computed/>
     </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
   import Person from './components/person.vue';
   import person_setup from './components/person_setup.vue';
-  export default {
-    name:'App',
-    components: { Person,person_setup },
-  }
+  import person_computed from './components/person_computed.vue';
+
+  
+    
+
+  
 </script>
 
 <style scoped>
