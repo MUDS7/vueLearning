@@ -5,6 +5,7 @@
       <Person/>
       <person_setup/>
       <person_computed/>
+      <person_watch/>
     </div>
 </template>
 
@@ -12,10 +13,7 @@
   import Person from './components/person.vue';
   import person_setup from './components/person_setup.vue';
   import person_computed from './components/person_computed.vue';
-
-  
-    
-
+  import person_watch from './components/person_watch.vue';
   
 </script>
 
