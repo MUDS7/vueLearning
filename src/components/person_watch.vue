@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-    import { ref, watch } from 'vue';
+    import { ref, watch, watchEffect } from 'vue';
 
     // let name = ref('张三')
     // let age = ref(18)
@@ -57,6 +57,13 @@
     // watch([()=> { person.value.name} , person],(newValue,oldValue) => {
     //     
     // })
+
+    // 如果需要watch的参数比较多，将所有的需要watch的变量都传进来就比较麻烦，可以使用watchEffect函数，不需要传入需要监视的变量，自动去找需要监视的字段
+    watchEffect(() => {
+        if (person.value.age >= 21) {
+            alert("effect")
+        }
+    })
 </script>
 
 <style>
